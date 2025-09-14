@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "build": "pnpm --filter @archon/core build && pnpm --filter @archon/ai build && tsc && vite build",
+    "build": "cd ../../packages/core && pnpm run build && cd ../ai && pnpm run build && cd ../../apps/web && tsc && vite build",
     "preview": "vite preview",
     "test": "vitest run",
     "test:ui": "vitest",
