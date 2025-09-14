@@ -1,9 +1,9 @@
 {
   "framework": "vite",
-  "buildCommand": "pnpm run build",
+  "buildCommand": "pnpm -w --filter @archon/web build",
   "outputDirectory": "apps/web/dist",
-  "installCommand": "pnpm install",
-  "devCommand": "pnpm dev",
+  "installCommand": "pnpm -w install",
+  "devCommand": "pnpm -w --filter @archon/web dev",
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]
