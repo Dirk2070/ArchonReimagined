@@ -35,7 +35,7 @@ export const GameBoard: React.FC<GameBoardProps> = ({
 
       if (isLegalMove) {
         // Check if there's an enemy piece there (combat)
-        const targetPiece = gameState.units.find(p =>
+        const targetPiece = gameState.units.find((p: Piece) =>
           p.position.x === x && p.position.y === y && p.side !== selectedPiece.side
         );
 
@@ -102,7 +102,7 @@ export const GameBoard: React.FC<GameBoardProps> = ({
       golem: '🪨',
       knight: '⚔️'
     };
-    return symbols[piece.type] || '?';
+    return symbols[piece.type as keyof typeof symbols] || '?';
   };
 
   const getPieceClasses = (piece: Piece): string => {
@@ -124,7 +124,7 @@ export const GameBoard: React.FC<GameBoardProps> = ({
       <div className="grid grid-cols-9 gap-1 bg-gray-700 p-4 rounded">
         {Array.from({ length: 9 }, (_, y) =>
           Array.from({ length: 9 }, (_, x) => {
-            const piece = gameState.units.find(p => p.position.x === x && p.position.y === y);
+            const piece = gameState.units.find((p: Piece) => p.position.x === x && p.position.y === y);
             return (
               <div
                 key={`${x}-${y}`}

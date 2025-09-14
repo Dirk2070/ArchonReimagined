@@ -9,7 +9,8 @@
   ],
   "scripts": {
     "dev": "pnpm --filter web dev",
-    "build": "pnpm --filter web build",
+    "build": "pnpm --filter core build && pnpm --filter ai build && pnpm --filter web build",
+    "build:packages": "pnpm --filter core build && pnpm --filter ai build",
     "test": "pnpm --filter web test",
     "arena:dev": "pnpm --filter arena dev",
     "core:test": "pnpm --filter core test",
