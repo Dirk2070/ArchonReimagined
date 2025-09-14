@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Game, GameState, Position, Piece, Difficulty, CombatResult } from './lib/packages';
-import { AIPlayer } from './lib/packages/ai';
+import { Game, GameState, Position, Piece, Difficulty, CombatResult } from '@archon/core';
+import { AIPlayer } from '@archon/ai';
 import { GameBoard } from './components/GameBoard';
 import { ArenaDialog } from './components/ArenaDialog';
 import { SettingsPanel } from './components/SettingsPanel';

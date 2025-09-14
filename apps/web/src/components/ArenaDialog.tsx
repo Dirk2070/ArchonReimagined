@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Piece, FieldType, CombatResult } from '../lib/packages';
+import { Piece, FieldType, CombatResult } from '@archon/core';
 
 interface ArenaDialogProps {
   attacker: Piece;

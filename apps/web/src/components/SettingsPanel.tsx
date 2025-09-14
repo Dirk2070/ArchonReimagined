@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Difficulty } from '../lib/packages';
+import { Difficulty } from '@archon/core';
 
 interface Settings {
   aiDifficulty: Difficulty;
