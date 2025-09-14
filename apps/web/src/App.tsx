@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Game, GameState, Position, Piece, Difficulty, CombatResult } from '@archon/core';
-import { createAIPlayer } from '@archon/ai';
+import { Game, GameState, Position, Piece, Difficulty, CombatResult } from './lib/packages';
+import { AIPlayer } from './lib/packages/ai';
 import { GameBoard } from './components/GameBoard';
 import { ArenaDialog } from './components/ArenaDialog';
 import { SettingsPanel } from './components/SettingsPanel';
@@ -12,7 +12,7 @@ function App() {
   const [legalMoves, setLegalMoves] = useState<Position[]>([]);
   const [showArena, setShowArena] = useState(false);
   const [combatData, setCombatData] = useState<{attacker: Piece, defender: Piece} | null>(null);
-  const [aiPlayer] = useState(() => createAIPlayer('normal'));
+  const [aiPlayer] = useState(() => new AIPlayer('normal'));
   const [settings, setSettings] = useState({
     aiDifficulty: 'normal' as Difficulty,
     aiSpeed: 1.0,

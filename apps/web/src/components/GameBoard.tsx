@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Game, GameState, Position, Piece } from '@archon/core';
+import { Game, GameState, Position, Piece } from '../lib/packages';
 
 interface GameBoardProps {
   game: Game;

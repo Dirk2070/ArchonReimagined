@@ -4,16 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "build": "cd ../../packages/core && pnpm run build && cd ../ai && pnpm run build && cd ../../apps/web && tsc && vite build",
+    "build": "tsc && vite build",
     "preview": "vite preview",
     "test": "vitest run",
     "test:ui": "vitest",
     "e2e": "playwright test"
   },
   "dependencies": {
-    "@archon/ai": "workspace:*",
-    "@archon/arena": "workspace:*",
-    "@archon/core": "workspace:*",
     "@supabase/supabase-js": "^2.57.4",
     "comlink": "^4.4.2",
     "react": "^18.0.0",

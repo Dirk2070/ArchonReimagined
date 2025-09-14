@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { describe, it, expect, vi } from "vitest"
 import { GameBoard } from "../components/GameBoard"
-import { Position, Piece } from "@archon/core"
+import { Position, Piece } from "../lib/packages"
 
 const mockGame = {
   getState: vi.fn(),
