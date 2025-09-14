@@ -1,0 +1,86 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup pnpm
+      uses: pnpm/action-setup@v2
+      with:
+        version: 8
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'pnpm'
+
+    - name: Install dependencies
+      run: pnpm install --frozen-lockfile
+
+    - name: Build core package
+      run: pnpm --filter core build
+
+    - name: Build ai package
+      run: pnpm --filter ai build
+
+    - name: Build arena package
+      run: pnpm --filter arena build
+
+    - name: Run tests
+      run: pnpm test
+
+    - name: Build web app
+      run: pnpm build
+
+    - name: Run web unit tests
+      run: pnpm --filter web test
+
+    - name: Install Playwright browsers
+      run: pnpm --filter web exec npx playwright install --with-deps
+
+    - name: Run E2E tests
+      run: pnpm --filter web e2e
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup pnpm
+      uses: pnpm/action-setup@v2
+      with:
+        version: 8
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'pnpm'
+
+    - name: Install dependencies
+      run: pnpm install --frozen-lockfile
+
+    - name: Build for production
+      run: pnpm build
+
+    - name: Deploy to Vercel
+      run: |
+        npm install -g vercel
+        vercel --prod --yes
+      env:
+        VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}

@@ -1,0 +1,15 @@
+{
+  "framework": null,
+  "buildCommand": "pnpm build",
+  "outputDirectory": "apps/web/dist",
+  "installCommand": "pnpm install",
+  "devCommand": "pnpm dev",
+  "functions": {
+    "apps/web/dist/**/*.js": {
+      "runtime": "@vercel/static"
+    }
+  },
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}

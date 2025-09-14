@@ -1,0 +1,22 @@
+{
+  "name": "archon-reimagined",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "infra/*"
+  ],
+  "scripts": {
+    "dev": "pnpm --filter web dev",
+    "build": "pnpm --filter web build",
+    "test": "pnpm --filter web test",
+    "arena:dev": "pnpm --filter arena dev",
+    "core:test": "pnpm --filter core test",
+    "ai:test": "pnpm --filter ai test"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  }
+}

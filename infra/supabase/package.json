@@ -1,0 +1,12 @@
+{
+  "name": "@archon/supabase",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "migrate": "supabase db push",
+    "reset": "supabase db reset"
+  },
+  "dependencies": {
+    "supabase": "^2.40.7"
+  }
+}
