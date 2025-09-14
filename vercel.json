@@ -1,6 +1,6 @@
 {
   "framework": null,
-  "buildCommand": "pnpm build",
+  "buildCommand": "cd apps/web && pnpm run build",
   "outputDirectory": "apps/web/dist",
   "installCommand": "pnpm install",
   "devCommand": "pnpm dev",
@@ -11,10 +11,5 @@
   },
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
-  ],
-  "build": {
-    "env": {
-      "CI": "false"
-    }
-  }
+  ]
 }

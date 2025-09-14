@@ -1,0 +1,13 @@
+node_modules
+packages
+infra
+*.test.ts
+*.test.tsx
+*.spec.ts
+*.spec.tsx
+tests
+Screenshots
+*.md
+*.docx
+*.zip
+*.png
