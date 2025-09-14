@@ -1,14 +1,9 @@
 {
-  "framework": null,
-  "buildCommand": "cd apps/web && pnpm run build",
+  "framework": "vite",
+  "buildCommand": "pnpm run build",
   "outputDirectory": "apps/web/dist",
   "installCommand": "pnpm install",
   "devCommand": "pnpm dev",
-  "functions": {
-    "apps/web/dist/**/*.js": {
-      "runtime": "@vercel/static"
-    }
-  },
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]
