@@ -1,9 +1,9 @@
 {
   "framework": "vite",
-  "buildCommand": "pnpm -w --filter @archon/web build",
+  "buildCommand": "pnpm -w --filter web build",
   "outputDirectory": "apps/web/dist",
   "installCommand": "pnpm -w install --frozen-lockfile",
-  "devCommand": "pnpm -w --filter @archon/web dev",
+  "devCommand": "pnpm -w --filter web dev",
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]
